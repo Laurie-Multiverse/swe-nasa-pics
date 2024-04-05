@@ -51,7 +51,7 @@ describe("App", () => {
     });
     const date = format(new Date("07/04/2023"), "MM/dd/yyy");
     const datePickerElement = screen.getByLabelText("nasa date picker");
-      fireEvent.change(datePickerElement, { target: { value: date } });
+      fireEvent.change(datePickerElement, { target: { value: date } }); // event.target.value
     const updatedDate = screen.getByDisplayValue("07/04/2023");
     expect(updatedDate).toBeInTheDocument();
   });
@@ -81,6 +81,17 @@ describe("App", () => {
       fireEvent.change(sliderElement, { target: { value: "100" } });
     expect(sliderElement).toHaveValue("100");
   });
+
+  // integration test (changing the size in the slider affects the size of the image)
+  test("image size reflects user input to slider", async () => {
+    await act(async () => {
+      render(<App />);
+    })
+    const sliderElement = screen.getByRole("slider");
+    fireEvent.change(sliderElement, { target: { value: "40" }});
+    const imageElement = screen.getByRole("img");
+    expect(imageElement).toHaveAttribute("width", "40%");
+  })
 
   // // functional test (simulates the user experience by rendering the entire App and checking if the default image is displayed)
   // test("default image loads", async () => {
