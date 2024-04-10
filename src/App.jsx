@@ -5,6 +5,7 @@ import ControlPanel from './components/ControlPanel'
 import DisplayPanel from './components/DisplayPanel'
 // contexts
 import { DateContext } from './contexts/DateContext'
+import { SizeContext } from './contexts/SizeContext'
 
 function App() {
   const [date, setDate] = useState(new Date())
@@ -13,10 +14,12 @@ function App() {
     <>
       <Header />
       <main>
+        <SizeContext.Provider value={{ size, setSize }}>
         <DateContext.Provider value={{ date, setDate }}>
-          <ControlPanel size={size} setSize={setSize} />
-          <DisplayPanel size={size} />
+          <ControlPanel />
+          <DisplayPanel />
         </DateContext.Provider>
+        </SizeContext.Provider>
       </main>
     </>
   )

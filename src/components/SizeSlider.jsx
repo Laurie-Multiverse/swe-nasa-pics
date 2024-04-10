@@ -1,6 +1,9 @@
 import { Slider } from '@mui/material'
+import { useContext } from 'react'
+import { SizeContext } from '../contexts/SizeContext'
 
-export default function SizeSlider({ size, setSize }) {
+export default function SizeSlider() {
+  const { size, setSize } = useContext(SizeContext)
   return (
     <Slider
       style={{ maxWidth: '300px' }}

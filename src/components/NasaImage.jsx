@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
 import { DateContext } from '../contexts/DateContext'
+import { SizeContext } from '../contexts/SizeContext'
 import { nasaDate } from '../utils/formatDate'
 
-export default function NasaImage({ size }) {
+export default function NasaImage() {
   const { date } = useContext(DateContext)
+  const { size } = useContext(SizeContext)
   const [img, setImg] = useState(null)
 
   useEffect(() => {
