@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import ImageDisplay from "./components/ImageDisplay";
-import Eclipse from "./components/Eclipse";
+import Satellites from "./components/Satellites";
 
 import "./index.css";
 
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
         element: <ImageDisplay />,
       },
       {
-        path: "/eclipse",
-        element: <Eclipse />,
+        path: "/satellites",
+        element: <Satellites />,
       }
     ],
   },

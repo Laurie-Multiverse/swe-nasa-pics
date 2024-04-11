@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 // components
 import Header from "./components/Header";
 
@@ -13,9 +13,6 @@ function App() {
   return (
     <>
       <Header />
-      <nav>
-        <NavLink to="/image">Image</NavLink> | <NavLink to="/eclipse">Eclipse</NavLink>
-      </nav>
       <main>
         <SizeContext.Provider value={{ size, setSize }}>
           <DateContext.Provider value={{ date, setDate }}>
